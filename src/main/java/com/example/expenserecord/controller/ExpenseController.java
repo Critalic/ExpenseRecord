@@ -4,6 +4,7 @@ import com.example.expenserecord.model.Category;
 import com.example.expenserecord.model.Customer;
 import com.example.expenserecord.model.Record;
 import com.example.expenserecord.service.ExpenseService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
@@ -15,6 +16,11 @@ public class ExpenseController {
 
     public ExpenseController(ExpenseService service) {
         this.service = service;
+    }
+
+    @GetMapping()
+    public ResponseEntity<String> getDefault() {
+        return ResponseEntity.ok("Hello from expense record api");
     }
 
     @PostMapping("customer")
