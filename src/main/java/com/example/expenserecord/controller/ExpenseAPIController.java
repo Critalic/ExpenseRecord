@@ -11,10 +11,10 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/api/v1/")
-public class ExpenseController {
-    private ExpenseService service;
+public class ExpenseAPIController {
+    private final ExpenseService service;
 
-    public ExpenseController(ExpenseService service) {
+    public ExpenseAPIController(ExpenseService service) {
         this.service = service;
     }
 
