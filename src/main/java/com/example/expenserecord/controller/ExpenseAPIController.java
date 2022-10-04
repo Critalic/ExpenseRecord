@@ -7,7 +7,8 @@ import com.example.expenserecord.service.ExpenseService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Set;
+import java.util.Collection;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/")
@@ -24,32 +25,32 @@ public class ExpenseAPIController {
     }
 
     @PostMapping("customer")
-    public void addCustomer(@RequestBody Customer customer) {
-        service.addCustomer(customer);
+    public Customer addCustomer(@RequestBody Customer customer) {
+        return service.addCustomer(customer);
     }
 
     @PostMapping("record")
-    public void addRecord(@RequestBody Record record) {
-        service.addRecord(record);
+    public Record addRecord(@RequestBody Record record) {
+        return service.addRecord(record);
     }
 
     @PostMapping("category")
-    public void addCategory(@RequestBody Category category) {
-        service.addCategory(category);
+    public Category addCategory(@RequestBody Category category) {
+        return service.addCategory(category);
     }
 
     @GetMapping("category")
-    public Set<Category> getCategories() {
+    public Collection<Category> getCategories() {
         return service.getCategories();
     }
 
     @GetMapping("record")
-    public Set<Record> getRecordsForCustomer(@RequestParam Long customerId) {
+    public Collection<Record> getRecordsForCustomer(@RequestParam Long customerId) {
         return service.getRecordsForCustomer(customerId);
     }
 
     @GetMapping("record/{categoryId}")
-    public Set<Record> getCategoryRecordsForCustomer(@RequestParam Long customerId,
+    public List<Record> getCategoryRecordsForCustomer(@RequestParam Long customerId,
                                                      @PathVariable Long categoryId) {
         return service.getCategoricalRecordsForCustomer(customerId, categoryId);
     }

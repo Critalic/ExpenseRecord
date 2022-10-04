@@ -4,48 +4,50 @@ import com.example.expenserecord.model.Category;
 import com.example.expenserecord.model.Customer;
 import com.example.expenserecord.model.Record;
 import com.example.expenserecord.repository.ExpenseRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.validation.ValidationException;
-import java.util.Set;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class ExpenseService {
+    @Qualifier("inMemory")
     private final ExpenseRepository repository;
 
     public ExpenseService(ExpenseRepository repository) {
         this.repository = repository;
     }
 
-    public void addCustomer(Customer customer) {
-        repository.addCustomer(customer);
+    public Customer addCustomer(Customer customer) {
+        return repository.addCustomer(customer);
     }
 
-    public void addRecord(Record record) {
+    public Record addRecord(Record record) {
         verifyRecordUserAndCategory(record);
-        repository.addRecord(record);
+        return repository.addRecord(record);
     }
 
-    public void addCategory(Category category) {
-        repository.addCategory(category);
+    public Category addCategory(Category category) {
+        return repository.addCategory(category);
     }
 
-    public Set<Category> getCategories() {
+    public List<Category> getCategories() {
         return repository.getCategories();
     }
 
-    public Set<Record> getRecordsForCustomer(Long userId) {
+    public List<Record> getRecordsForCustomer(Long userId) {
         return repository.getRecords().stream()
                 .filter(record -> record.getUserId().equals(userId))
-                .collect(Collectors.toSet());
+                .collect(Collectors.toList());
     }
 
-    public Set<Record> getCategoricalRecordsForCustomer(Long userId, Long categoryId) {
+    public List<Record> getCategoricalRecordsForCustomer(Long userId, Long categoryId) {
         return repository.getRecords().stream()
                 .filter(record -> record.getUserId().equals(userId))
                 .filter(record -> record.getCategoryId().equals(categoryId))
-                .collect(Collectors.toSet());
+                .collect(Collectors.toList());
     }
 
 
