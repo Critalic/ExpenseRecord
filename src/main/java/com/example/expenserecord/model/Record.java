@@ -1,23 +1,24 @@
 package com.example.expenserecord.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import org.springdoc.core.converters.models.MonetaryAmount;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 public class Record {
-    @NonNull
+    @EqualsAndHashCode.Exclude
     private Long id;
-    @NonNull
+    @NotNull(message = "User id can't be null")
     private Long userId;
-    @NonNull
+    @NotNull(message = "Category id can't be null")
     private Long categoryId;
-    @NonNull
+    @NotNull(message = "Creation time can't be null")
     private LocalDateTime creationTime;
-    @NonNull
+    @EqualsAndHashCode.Exclude
     private MonetaryAmount money;
 }

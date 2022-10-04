@@ -18,16 +18,19 @@ public class ExpenseRepositoryInMemory implements ExpenseRepository {
 
     public synchronized Customer addCustomer(Customer customer) {
         customers.add(customer);
+        customer.setId((long) customer.hashCode());
         return customer;
     }
 
     public synchronized Record addRecord(Record record) {
         records.add(record);
+        record.setId((long) record.hashCode());
         return record;
     }
 
     public synchronized Category addCategory(Category category) {
         categories.add(category);
+        category.setId((long) category.hashCode());
         return category;
     }
 
