@@ -2,6 +2,7 @@ package com.example.expenserecord.repository;
 
 import com.example.expenserecord.model.Category;
 import com.example.expenserecord.model.Customer;
+import com.example.expenserecord.model.MonetaryUnit;
 import com.example.expenserecord.model.Record;
 
 import java.util.List;
@@ -19,4 +20,8 @@ public interface ExpenseRepository {
     List<Customer> getCustomers();
 
     List<Category> getCategories();
+
+    MonetaryUnit addMonetaryUnit(MonetaryUnit monetaryUnit);
+
+    List<MonetaryUnit> getMonetaryUnits();
 }

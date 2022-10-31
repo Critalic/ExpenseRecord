@@ -17,13 +17,13 @@ import java.time.LocalDateTime;
 public class Record {
     @Id
     @EqualsAndHashCode.Exclude
-    private Long id;
+    private String id;
     @EqualsAndHashCode.Exclude
-    private Long moneyId;
+    private String moneyId;
     @NotNull(message = "User id can't be null")
-    private Long userId;
+    private String customerId;
     @NotNull(message = "Category id can't be null")
-    private Long categoryId;
+    private String categoryId;
     @NotNull(message = "Creation time can't be null")
     private LocalDateTime creationTime;
 }

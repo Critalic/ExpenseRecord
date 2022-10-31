@@ -5,11 +5,15 @@ import com.example.expenserecord.model.Customer;
 import com.example.expenserecord.model.MonetaryUnit;
 import com.example.expenserecord.model.Record;
 import com.example.expenserecord.repository.ExpenseRepository;
+import com.example.expenserecord.repository.mongo.entityrepo.CategoryRepository;
+import com.example.expenserecord.repository.mongo.entityrepo.CustomerRepository;
+import com.example.expenserecord.repository.mongo.entityrepo.MonetaryUnitRepository;
+import com.example.expenserecord.repository.mongo.entityrepo.RecordRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("mongo")
+@Repository("mongoDB")
 public class ExpenseRepositoryMongo implements ExpenseRepository {
     private final CategoryRepository categoryRepository;
     private final CustomerRepository customerRepository;

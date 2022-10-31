@@ -14,7 +14,7 @@ import javax.validation.constraints.NotEmpty;
 public class Category {
     @Id
     @EqualsAndHashCode.Exclude
-    private Long id;
+    private String id;
     @Indexed(unique = true)
     @NotEmpty(message = "Category name can't be empty")
     private String name;

@@ -18,7 +18,7 @@ import java.util.Currency;
 public class MonetaryUnit {
     @Id
     @EqualsAndHashCode.Exclude
-    private Long id;
+    private String id;
     @Indexed(unique = true)
     @NotNull(message = "Currency code can't be null")
     private Currency currency;

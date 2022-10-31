@@ -2,6 +2,7 @@ package com.example.expenserecord.service;
 
 import com.example.expenserecord.model.Category;
 import com.example.expenserecord.model.Customer;
+import com.example.expenserecord.model.MonetaryUnit;
 import com.example.expenserecord.model.Record;
 import com.example.expenserecord.repository.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,7 +16,7 @@ import java.util.stream.Collectors;
 public class ExpenseService {
     private final ExpenseRepository repository;
 
-    public ExpenseService(@Qualifier("mongo") ExpenseRepository repository) {
+    public ExpenseService(@Qualifier("mongoDB") ExpenseRepository repository) {
         this.repository = repository;
     }
 
@@ -38,13 +39,13 @@ public class ExpenseService {
 
     public List<Record> getRecordsForCustomer(Long userId) {
         return repository.getRecords().stream()
-                .filter(record -> record.getUserId().equals(userId))
+                .filter(record -> record.getCustomerId().equals(userId))
                 .collect(Collectors.toList());
     }
 
     public List<Record> getCategoricalRecordsForCustomer(Long userId, Long categoryId) {
         return repository.getRecords().stream()
-                .filter(record -> record.getUserId().equals(userId))
+                .filter(record -> record.getCustomerId().equals(userId))
                 .filter(record -> record.getCategoryId().equals(categoryId))
                 .collect(Collectors.toList());
     }
@@ -57,8 +58,16 @@ public class ExpenseService {
         }
 
         if (repository.getCustomers().stream()
-                .noneMatch(customer -> customer.getId().equals(record.getUserId()))) {
+                .noneMatch(customer -> customer.getId().equals(record.getCustomerId()))) {
             throw new ValidationException("Given record's customer doesn't exist");
         }
+    }
+
+    public MonetaryUnit addMonetaryUnit(MonetaryUnit monetaryUnit) {
+        return repository.addMonetaryUnit(monetaryUnit);
+    }
+
+    public List<MonetaryUnit> getMonetaryUnits() {
+        return repository.getMonetaryUnits();
     }
 }

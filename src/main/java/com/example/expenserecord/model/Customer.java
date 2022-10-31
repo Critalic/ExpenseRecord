@@ -1,5 +1,6 @@
 package com.example.expenserecord.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import nonapi.io.github.classgraph.json.Id;
 import org.springdoc.core.converters.models.MonetaryAmount;
@@ -15,7 +16,7 @@ import javax.validation.constraints.NotNull;
 public class Customer {
     @Id
     @EqualsAndHashCode.Exclude
-    private Long id;
+    private String id;
     @NotNull
     @EqualsAndHashCode.Exclude
     private Long defaultMoneyId;

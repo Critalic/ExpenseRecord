@@ -2,6 +2,7 @@ package com.example.expenserecord.repository.inmemory;
 
 import com.example.expenserecord.model.Category;
 import com.example.expenserecord.model.Customer;
+import com.example.expenserecord.model.MonetaryUnit;
 import com.example.expenserecord.model.Record;
 import com.example.expenserecord.repository.ExpenseRepository;
 import org.springframework.stereotype.Repository;
@@ -18,19 +19,19 @@ public class ExpenseRepositoryInMemory implements ExpenseRepository {
 
     public synchronized Customer addCustomer(Customer customer) {
         customers.add(customer);
-        customer.setId((long) customer.hashCode());
+        customer.setId(Integer.toString(customer.hashCode()));
         return customer;
     }
 
     public synchronized Record addRecord(Record record) {
         records.add(record);
-        record.setId((long) record.hashCode());
+        record.setId(Integer.toString(record.hashCode()));
         return record;
     }
 
     public synchronized Category addCategory(Category category) {
         categories.add(category);
-        category.setId((long) category.hashCode());
+        category.setId(Integer.toString(category.hashCode()));
         return category;
     }
 
@@ -44,5 +45,15 @@ public class ExpenseRepositoryInMemory implements ExpenseRepository {
 
     public List<Category> getCategories() {
         return new ArrayList<>(categories);
+    }
+
+    @Override
+    public MonetaryUnit addMonetaryUnit(MonetaryUnit monetaryUnit) {
+        return null;
+    }
+
+    @Override
+    public List<MonetaryUnit> getMonetaryUnits() {
+        return null;
     }
 }

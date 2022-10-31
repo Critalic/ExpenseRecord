@@ -2,6 +2,7 @@ package com.example.expenserecord.controller;
 
 import com.example.expenserecord.model.Category;
 import com.example.expenserecord.model.Customer;
+import com.example.expenserecord.model.MonetaryUnit;
 import com.example.expenserecord.model.Record;
 import com.example.expenserecord.service.ExpenseService;
 import org.springframework.http.ResponseEntity;
@@ -35,6 +36,16 @@ public class ExpenseAPIController {
     @PostMapping("record")
     public Record addRecord(@RequestBody @Valid Record record) {
         return service.addRecord(record);
+    }
+
+    @PostMapping("monetaryUnit")
+    public MonetaryUnit addMonetaryUnit(@RequestBody @Valid MonetaryUnit monetaryUnit) {
+        return service.addMonetaryUnit(monetaryUnit);
+    }
+
+    @GetMapping("monetaryUnit")
+    public Collection<MonetaryUnit> getMonetaryUnits() {
+        return service.getMonetaryUnits();
     }
 
     @PostMapping("category")

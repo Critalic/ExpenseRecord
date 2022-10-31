@@ -1,8 +1,8 @@
-package com.example.expenserecord.repository.mongo;
+package com.example.expenserecord.repository.mongo.entityrepo;
 
 import com.example.expenserecord.model.Category;
 import com.example.expenserecord.model.Customer;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface CategoryRepository extends MongoRepository<Category, Long> {
+public interface CategoryRepository extends MongoRepository<Category, String> {
 }
