@@ -4,7 +4,6 @@ import com.example.expenserecord.model.Category;
 import com.example.expenserecord.model.Customer;
 import com.example.expenserecord.model.MonetaryUnit;
 import com.example.expenserecord.model.Record;
-import com.example.expenserecord.repository.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class ExpenseService {
-    private final ExpenseRepository repository;
+    private final CategoryRepository repository;
 
     public ExpenseService(@Qualifier("mongoDB") ExpenseRepository repository) {
         this.repository = repository;
@@ -37,13 +36,13 @@ public class ExpenseService {
         return repository.getCategories();
     }
 
-    public List<Record> getRecordsForCustomer(Long userId) {
+    public List<Record> getRecordsForCustomer(String userId) {
         return repository.getRecords().stream()
                 .filter(record -> record.getCustomerId().equals(userId))
                 .collect(Collectors.toList());
     }
 
-    public List<Record> getCategoricalRecordsForCustomer(Long userId, Long categoryId) {
+    public List<Record> getCategoricalRecordsForCustomer(String userId, String categoryId) {
         return repository.getRecords().stream()
                 .filter(record -> record.getCustomerId().equals(userId))
                 .filter(record -> record.getCategoryId().equals(categoryId))

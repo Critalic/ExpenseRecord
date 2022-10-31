@@ -1,5 +1,7 @@
 package com.example.expenserecord.controller;
 
+import com.example.expenserecord.dto.CustomerDTO;
+import com.example.expenserecord.dto.RecordDTO;
 import com.example.expenserecord.model.Category;
 import com.example.expenserecord.model.Customer;
 import com.example.expenserecord.model.MonetaryUnit;
@@ -29,12 +31,12 @@ public class ExpenseAPIController {
     }
 
     @PostMapping("customer")
-    public Customer addCustomer(@RequestBody @Valid Customer customer) {
-        return service.addCustomer(customer);
+    public Customer addCustomer(@RequestBody @Valid CustomerDTO customer) {
+        return service.addCustomer(customer.toCustomer());
     }
 
     @PostMapping("record")
-    public Record addRecord(@RequestBody @Valid Record record) {
+    public Record addRecord(@RequestBody @Valid RecordDTO record) {
         return service.addRecord(record);
     }
 
@@ -59,13 +61,13 @@ public class ExpenseAPIController {
     }
 
     @GetMapping("record")
-    public Collection<Record> getRecordsForCustomer(@RequestParam Long customerId) {
+    public Collection<Record> getRecordsForCustomer(@RequestParam String customerId) {
         return service.getRecordsForCustomer(customerId);
     }
 
     @GetMapping("record/{categoryId}")
-    public List<Record> getCategoryRecordsForCustomer(@RequestParam Long customerId,
-                                                     @PathVariable Long categoryId) {
+    public List<Record> getCategoryRecordsForCustomer(@RequestParam String customerId,
+                                                     @PathVariable String categoryId) {
         return service.getCategoricalRecordsForCustomer(customerId, categoryId);
     }
 }

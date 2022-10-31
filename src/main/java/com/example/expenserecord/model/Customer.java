@@ -1,9 +1,11 @@
 package com.example.expenserecord.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import nonapi.io.github.classgraph.json.Id;
-import org.springdoc.core.converters.models.MonetaryAmount;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotEmpty;
@@ -19,7 +21,8 @@ public class Customer {
     private String id;
     @NotNull
     @EqualsAndHashCode.Exclude
-    private Long defaultMoneyId;
+    private String defaultMoneyId;
+    @Indexed(unique = true)
     @NotEmpty(message = "Customer's name can't be empty")
     private String name;
 }
