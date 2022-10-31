@@ -1,7 +1,6 @@
 package com.example.expenserecord.dto;
 
 import com.example.expenserecord.model.Record;
-import com.example.expenserecord.repository.mongo.entityrepo.CustomerRepository;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,17 +15,14 @@ import static java.util.Objects.isNull;
 @NoArgsConstructor
 public class RecordDTO {
     private String moneyId;
-    @NotEmpty(message = "User id can't be null")
-    private String userId;
+    @NotEmpty(message = "Customer id can't be null")
+    private String customerId;
     @NotEmpty(message = "Category id can't be null")
     private String categoryId;
     private LocalDateTime creationTime;
 
-    public Record toRecord(CustomerRepository customerRepository) {
-        Record record = new Record();
-        record.setCategoryId(this.categoryId);
-        record.setCustomerId(this.getUserId());
-        record.setCreationTime(isNull(this.creationTime) ? LocalDateTime.now() : this.creationTime);
-        return record;
+    public Record toRecord() {
+        return new Record(this.moneyId, this.customerId, this.categoryId,
+                isNull(this.creationTime) ? LocalDateTime.now() : this.creationTime);
     }
 }

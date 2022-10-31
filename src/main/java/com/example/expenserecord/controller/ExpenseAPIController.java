@@ -1,6 +1,8 @@
 package com.example.expenserecord.controller;
 
+import com.example.expenserecord.dto.CategoryDTO;
 import com.example.expenserecord.dto.CustomerDTO;
+import com.example.expenserecord.dto.MonetaryUnitDTO;
 import com.example.expenserecord.dto.RecordDTO;
 import com.example.expenserecord.model.Category;
 import com.example.expenserecord.model.Customer;
@@ -13,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Collection;
-import java.util.List;
 
 @Validated
 @RestController
@@ -31,43 +32,43 @@ public class ExpenseAPIController {
     }
 
     @PostMapping("customer")
-    public Customer addCustomer(@RequestBody @Valid CustomerDTO customer) {
-        return service.addCustomer(customer.toCustomer());
+    public ResponseEntity<Customer> addCustomer(@RequestBody @Valid CustomerDTO customer) {
+        return ResponseEntity.ok(service.addCustomer(customer.toCustomer()));
     }
 
     @PostMapping("record")
-    public Record addRecord(@RequestBody @Valid RecordDTO record) {
-        return service.addRecord(record);
+    public ResponseEntity<Record> addRecord(@RequestBody @Valid RecordDTO record) {
+        return ResponseEntity.ok(service.addRecord(record.toRecord()));
     }
 
     @PostMapping("monetaryUnit")
-    public MonetaryUnit addMonetaryUnit(@RequestBody @Valid MonetaryUnit monetaryUnit) {
-        return service.addMonetaryUnit(monetaryUnit);
+    public ResponseEntity<MonetaryUnit> addMonetaryUnit(@RequestBody @Valid MonetaryUnitDTO monetaryUnit) {
+        return ResponseEntity.ok(service.addMonetaryUnit(monetaryUnit.toMonetaryUnit()));
     }
 
     @GetMapping("monetaryUnit")
-    public Collection<MonetaryUnit> getMonetaryUnits() {
-        return service.getMonetaryUnits();
+    public ResponseEntity<Collection<MonetaryUnit>> getMonetaryUnits() {
+        return ResponseEntity.ok(service.getMonetaryUnits());
     }
 
     @PostMapping("category")
-    public Category addCategory(@RequestBody @Valid Category category) {
-        return service.addCategory(category);
+    public ResponseEntity<Category> addCategory(@RequestBody @Valid CategoryDTO category) {
+        return ResponseEntity.ok(service.addCategory(category.toCategory()));
     }
 
     @GetMapping("category")
-    public Collection<Category> getCategories() {
-        return service.getCategories();
+    public ResponseEntity<Collection<Category>> getCategories() {
+        return ResponseEntity.ok(service.getCategories());
     }
 
     @GetMapping("record")
-    public Collection<Record> getRecordsForCustomer(@RequestParam String customerId) {
-        return service.getRecordsForCustomer(customerId);
+    public ResponseEntity<Collection<Record>> getRecordsForCustomer(@RequestParam String customerId) {
+        return ResponseEntity.ok(service.getRecordsForCustomer(customerId));
     }
 
     @GetMapping("record/{categoryId}")
-    public List<Record> getCategoryRecordsForCustomer(@RequestParam String customerId,
-                                                     @PathVariable String categoryId) {
-        return service.getCategoricalRecordsForCustomer(customerId, categoryId);
+    public ResponseEntity<Collection<Record>> getCategoryRecordsForCustomer(@RequestParam String customerId,
+                                                                            @PathVariable String categoryId) {
+        return ResponseEntity.ok(service.getCategoricalRecordsForCustomer(customerId, categoryId));
     }
 }

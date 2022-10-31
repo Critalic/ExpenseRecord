@@ -1,11 +1,11 @@
 package com.example.expenserecord.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import nonapi.io.github.classgraph.json.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import javax.validation.constraints.NotEmpty;
 
 @Getter
 @Setter
@@ -13,9 +13,11 @@ import javax.validation.constraints.NotEmpty;
 @Document
 public class Category {
     @Id
-    @EqualsAndHashCode.Exclude
     private String id;
     @Indexed(unique = true)
-    @NotEmpty(message = "Category name can't be empty")
     private String name;
+
+    public Category(String name) {
+        this.name = name;
+    }
 }

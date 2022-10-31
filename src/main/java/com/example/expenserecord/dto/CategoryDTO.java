@@ -10,11 +10,10 @@ import javax.validation.constraints.NotEmpty;
 @Setter
 public class CategoryDTO {
     @NotEmpty
+    @NotEmpty(message = "Category name can't be empty")
     private String name;
 
-    private Category toCategory() {
-        Category category = new Category();
-        category.setName(this.name);
-        return category;
+    public Category toCategory() {
+        return new Category(this.name);
     }
 }

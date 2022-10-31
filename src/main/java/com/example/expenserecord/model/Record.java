@@ -19,4 +19,11 @@ public class Record {
     private String customerId;
     private String categoryId;
     private LocalDateTime creationTime;
+
+    public Record(String moneyId, String customerId, String categoryId, LocalDateTime creationTime) {
+        this.moneyId = moneyId;
+        this.customerId = customerId;
+        this.categoryId = categoryId;
+        this.creationTime = creationTime;
+    }
 }

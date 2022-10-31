@@ -1,4 +1,4 @@
-package com.example.expenserecord.repository.mongo.entityrepo;
+package com.example.expenserecord.repository.mongo;
 
 import com.example.expenserecord.model.Category;
 import com.example.expenserecord.model.Customer;
