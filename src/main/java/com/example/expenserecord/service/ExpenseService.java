@@ -13,10 +13,9 @@ import java.util.stream.Collectors;
 
 @Service
 public class ExpenseService {
-    @Qualifier("inMemory")
     private final ExpenseRepository repository;
 
-    public ExpenseService(ExpenseRepository repository) {
+    public ExpenseService(@Qualifier("mongo") ExpenseRepository repository) {
         this.repository = repository;
     }
 
@@ -52,12 +51,12 @@ public class ExpenseService {
 
 
     private void verifyRecordUserAndCategory(Record record) {
-        if(repository.getCategories().stream()
+        if (repository.getCategories().stream()
                 .noneMatch(category -> category.getId().equals(record.getCategoryId()))) {
             throw new ValidationException("Given record's category doesn't exist");
         }
 
-        if(repository.getCustomers().stream()
+        if (repository.getCustomers().stream()
                 .noneMatch(customer -> customer.getId().equals(record.getUserId()))) {
             throw new ValidationException("Given record's customer doesn't exist");
         }

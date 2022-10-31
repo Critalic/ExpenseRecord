@@ -1,4 +1,4 @@
-package com.example.expenserecord.repository.implementation;
+package com.example.expenserecord.repository.inmemory;
 
 import com.example.expenserecord.model.Category;
 import com.example.expenserecord.model.Customer;

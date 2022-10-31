@@ -5,25 +5,25 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import nonapi.io.github.classgraph.json.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
+import java.util.Currency;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Document
-public class Record {
+public class MonetaryUnit {
     @Id
     @EqualsAndHashCode.Exclude
     private Long id;
-    @EqualsAndHashCode.Exclude
-    private Long moneyId;
-    @NotNull(message = "User id can't be null")
-    private Long userId;
-    @NotNull(message = "Category id can't be null")
-    private Long categoryId;
-    @NotNull(message = "Creation time can't be null")
-    private LocalDateTime creationTime;
+    @Indexed(unique = true)
+    @NotNull(message = "Currency code can't be null")
+    private Currency currency;
+
+    public MonetaryUnit(Currency currency) {
+        this.currency = currency;
+    }
 }
