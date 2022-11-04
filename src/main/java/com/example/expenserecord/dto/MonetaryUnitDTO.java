@@ -18,8 +18,6 @@ public class MonetaryUnitDTO {
     private String currencyCode;
 
     public MonetaryUnit toMonetaryUnit() {
-        MonetaryUnit monetaryUnit = new MonetaryUnit();
-        monetaryUnit.setCurrency(Currency.getInstance(currencyCode));
-        return monetaryUnit;
+        return new MonetaryUnit(Currency.getInstance(currencyCode));
     }
 }

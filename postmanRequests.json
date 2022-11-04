@@ -1,155 +1,219 @@
 {
-  "info":{
-    "_postman_id":"8760c377-bd46-4faa-b5f5-17bebff4b37f",
-    "name":"Back-end lab 1",
-    "schema":"https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  "info": {
+    "_postman_id": "8760c377-bd46-4faa-b5f5-17bebff4b37f",
+    "name": "Back-end lab 1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "18455186"
   },
-  "item":[
+  "item": [
     {
-      "name":"Get categories",
-      "id":"7baec7db-0a2e-4519-92bc-8afde62b4461",
-      "request":{
-        "method":"GET",
-        "header":[
-
-        ],
-        "url":"http://{{domain}}/api/v1/category"
+      "name": "Get categories",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://{{domain}}/api/v1/category",
+          "protocol": "http",
+          "host": [
+            "{{domain}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "category"
+          ]
+        }
       },
-      "response":[
-
-      ]
+      "response": []
     },
     {
-      "name":"Create category",
-      "id":"a46bda4a-b871-4436-877b-78d2fcdf0690",
-      "request":{
-        "method":"POST",
-        "header":[
-
-        ],
-        "body":{
-          "mode":"raw",
-          "raw":"{\r\n    \r\n    \"name\":\"null\"\r\n}",
-          "options":{
-            "raw":{
-              "language":"json"
+      "name": "Create category",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \r\n    \"name\":\"psdjgij\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
             }
           }
         },
-        "url":"http://{{domain}}/api/v1/category"
-      },
-      "response":[
-
-      ]
-    },
-    {
-      "name":"Get records",
-      "id":"844f2285-8924-46ce-8643-bdf5d8908f53",
-      "request":{
-        "method":"GET",
-        "header":[
-
-        ],
-        "url":{
-          "raw":"http://{{domain}}/api/v1/record?customerId=377311820",
-          "protocol":"http",
-          "host":[
+        "url": {
+          "raw": "http://{{domain}}/api/v1/category",
+          "protocol": "http",
+          "host": [
             "{{domain}}"
           ],
-          "path":[
+          "path": [
+            "api",
+            "v1",
+            "category"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create monetary unit",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \r\n    \"currencyCode\":\"USD\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://{{domain}}/api/v1/monetaryUnit",
+          "protocol": "http",
+          "host": [
+            "{{domain}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "monetaryUnit"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get records",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://{{domain}}/api/v1/record?customerId=377311820",
+          "protocol": "http",
+          "host": [
+            "{{domain}}"
+          ],
+          "path": [
             "api",
             "v1",
             "record"
           ],
-          "query":[
+          "query": [
             {
-              "key":"customerId",
-              "value":"377311820"
+              "key": "customerId",
+              "value": "377311820"
             }
           ]
         }
       },
-      "response":[
-
-      ]
+      "response": []
     },
     {
-      "name":"Get category records",
-      "id":"dc71cd82-4827-4ee1-a695-752327ae7b00",
-      "request":{
-        "method":"GET",
-        "header":[
-
-        ],
-        "url":{
-          "raw":"http://{{domain}}/api/v1/record/1079463048?customerId=377311820",
-          "protocol":"http",
-          "host":[
+      "name": "Get monetary units",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://{{domain}}/api/v1/monetaryUnit",
+          "protocol": "http",
+          "host": [
             "{{domain}}"
           ],
-          "path":[
+          "path": [
+            "api",
+            "v1",
+            "monetaryUnit"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get category records",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://{{domain}}/api/v1/record/1079463048?customerId=377311820",
+          "protocol": "http",
+          "host": [
+            "{{domain}}"
+          ],
+          "path": [
             "api",
             "v1",
             "record",
             "1079463048"
           ],
-          "query":[
+          "query": [
             {
-              "key":"customerId",
-              "value":"377311820"
+              "key": "customerId",
+              "value": "377311820"
             }
           ]
         }
       },
-      "response":[
-
-      ]
+      "response": []
     },
     {
-      "name":"Create user",
-      "id":"992ecc14-c85d-4258-9d89-87f57aae4a8c",
-      "request":{
-        "method":"POST",
-        "header":[
-
-        ],
-        "body":{
-          "mode":"raw",
-          "raw":"{\r\n    \"id\":1,\r\n    \"name\":\"Oojimdg\"\r\n}",
-          "options":{
-            "raw":{
-              "language":"json"
+      "name": "Create user",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"defaultMoneyId\":\"6364ee76e661ab59412fca0a\",\r\n    \"name\":\"Oojimdg\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
             }
           }
         },
-        "url":"http://{{domain}}/api/v1/customer"
+        "url": {
+          "raw": "http://{{domain}}/api/v1/customer",
+          "protocol": "http",
+          "host": [
+            "{{domain}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "customer"
+          ]
+        }
       },
-      "response":[
-
-      ]
+      "response": []
     },
     {
-      "name":"Create record",
-      "id":"9eb8740b-44a0-4797-9fa5-a1b3c0c3bd98",
-      "request":{
-        "method":"POST",
-        "header":[
-
-        ],
-        "body":{
-          "mode":"raw",
-          "raw":"{\r\n    \"id\":4,\r\n    \"userId\":377311820,\r\n    \"categoryId\":3392962,\r\n    \"creationTime\":\"2019-02-05T16:45:42.01Z\",\r\n    \"money\": {\"amount\":\"100.00\",\"currency\":\"EUR\"}\r\n}",
-          "options":{
-            "raw":{
-              "language":"json"
+      "name": "Create record",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"customerId\":\"6364eea3e661ab59412fca0b\",\r\n    \"categoryId\":\"6364f3365fa98a049c4105d6\",\r\n    \"moneyId\":\"6364ee76e661ab59412fca0a\",\r\n    \"creationTime\":\"2019-02-05T16:45:42.01Z\",\r\n    \"amount\":\"100.00\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
             }
           }
         },
-        "url":"http://{{domain}}/api/v1/record"
+        "url": {
+          "raw": "http://{{domain}}/api/v1/record",
+          "protocol": "http",
+          "host": [
+            "{{domain}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "record"
+          ]
+        }
       },
-      "response":[
-
-      ]
+      "response": []
     }
   ]
 }

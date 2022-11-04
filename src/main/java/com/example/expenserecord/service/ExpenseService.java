@@ -33,6 +33,7 @@ public class ExpenseService {
     }
 
     public Customer addCustomer(Customer customer) {
+        verifyMoneyId(customer.getDefaultMoneyId());
         return customerRepository.insert(customer);
     }
 
@@ -71,11 +72,17 @@ public class ExpenseService {
     }
 
     private void verifyRecordUserAndCategory(Record record) {
-        if (categoryRepository.existsById(record.getCategoryId())) {
+        if (!categoryRepository.existsById(record.getCategoryId())) {
             throw new ValidationException("Given record's category doesn't exist");
         }
-        if (customerRepository.existsById(record.getCustomerId())) {
+        if (!customerRepository.existsById(record.getCustomerId())) {
             throw new ValidationException("Given record's customer doesn't exist");
+        }
+    }
+
+    private void verifyMoneyId(String defaultMoneyId) {
+        if(!monetaryUnitRepository.existsById(defaultMoneyId)) {
+            throw new ValidationException("Given customer's default money id doesn't exist");
         }
     }
 }

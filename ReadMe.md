@@ -1,9 +1,10 @@
-# Expense record API (Back-end lab 1)
+# Expense record API (Back-end lab 2)
 
-This is a solution for the first lab on back-end dev course. [Detailed technical requirements](https://docs.google.com/document/d/1W6drdJgBEYofRGBfd9Gm0i5gbnsdtUYtSSAsKkaPSY4/edit) 
+This is a solution for the second lab on back-end dev course. [Detailed technical requirements](https://docs.google.com/document/d/1skjB5xCCUd8dcSO2EaGciz2iBYjc3fxmVKKcqf0Zznc/edit) 
 
 Postman requests can be found in [postmanRequests.json](postmanRequests.json)
 
+A MongoDB server at [Clever Cloud](https://www.clever-cloud.com/) was used as the database
 ### How to start
 [Video instruction](https://drive.google.com/file/d/17hC29hxif4vG_UZfcoSTCujOsIAUMe7T/view?usp=sharing)
 
