@@ -4,6 +4,8 @@ This is a solution for the second lab on back-end dev course. [Detailed technica
 
 Postman requests can be found in [postmanRequests.json](postmanRequests.json)
 
+Variant 1 - currencies (Group IT-01: 1%3 = 1)
+
 A MongoDB server at [Clever Cloud](https://www.clever-cloud.com/) was used as the database
 ### How to start
 [Video instruction](https://drive.google.com/file/d/17hC29hxif4vG_UZfcoSTCujOsIAUMe7T/view?usp=sharing)
