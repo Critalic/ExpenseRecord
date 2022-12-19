@@ -1,12 +1,14 @@
-# Expense record API (Back-end lab 2)
+# Expense record API (Back-end lab 3)
 
-This is a solution for the second lab on back-end dev course. [Detailed technical requirements](https://docs.google.com/document/d/1skjB5xCCUd8dcSO2EaGciz2iBYjc3fxmVKKcqf0Zznc/edit) 
+This is a solution for the ершкв lab on back-end dev course. [Detailed technical requirements](https://docs.google.com/document/d/11zEDVhyPrYx7482_12dZBAwYyMYYyaYX6cfZjW8Z2dg/edit) 
 
 Postman requests can be found in [postmanRequests.json](postmanRequests.json)
 
-Variant 1 - currencies (Group IT-01: 1%3 = 1)
+Insomnia requests can be found in [Insomnia_2022-12-19.json](Insomnia_2022-12-19.json)
 
 A MongoDB server at [Clever Cloud](https://www.clever-cloud.com/) was used as the database
+
+Project uses both access and refresh tokens.
 ### How to start
 [Video instruction](https://drive.google.com/file/d/17hC29hxif4vG_UZfcoSTCujOsIAUMe7T/view?usp=sharing)
 
