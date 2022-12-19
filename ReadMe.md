@@ -1,6 +1,6 @@
 # Expense record API (Back-end lab 3)
 
-This is a solution for the ершкв lab on back-end dev course. [Detailed technical requirements](https://docs.google.com/document/d/11zEDVhyPrYx7482_12dZBAwYyMYYyaYX6cfZjW8Z2dg/edit) 
+This is a solution for the third lab on back-end dev course. [Detailed technical requirements](https://docs.google.com/document/d/11zEDVhyPrYx7482_12dZBAwYyMYYyaYX6cfZjW8Z2dg/edit) 
 
 Postman requests can be found in [postmanRequests.json](postmanRequests.json)
 
