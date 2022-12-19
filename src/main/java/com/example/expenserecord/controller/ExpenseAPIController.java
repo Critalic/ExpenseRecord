@@ -1,11 +1,9 @@
 package com.example.expenserecord.controller;
 
 import com.example.expenserecord.dto.CategoryDTO;
-import com.example.expenserecord.dto.CustomerDTO;
 import com.example.expenserecord.dto.MonetaryUnitDTO;
 import com.example.expenserecord.dto.RecordDTO;
 import com.example.expenserecord.model.Category;
-import com.example.expenserecord.model.Customer;
 import com.example.expenserecord.model.MonetaryUnit;
 import com.example.expenserecord.model.Record;
 import com.example.expenserecord.service.ExpenseService;
@@ -31,14 +29,9 @@ public class ExpenseAPIController {
         return ResponseEntity.ok("Hello from expense record api");
     }
 
-    @PostMapping("customer")
-    public ResponseEntity<Customer> addCustomer(@RequestBody @Valid CustomerDTO customer) {
-        return ResponseEntity.ok(service.addCustomer(customer.toCustomer()));
-    }
-
     @PostMapping("record")
-    public ResponseEntity<Record> addRecord(@RequestBody @Valid RecordDTO record) {
-        return ResponseEntity.ok(service.addRecord(record.toRecord()));
+    public ResponseEntity<Record> addRecord(@RequestBody @Valid RecordDTO recordDTO) {
+        return ResponseEntity.ok(service.addRecord(recordDTO.toRecord()));
     }
 
     @PostMapping("monetaryUnit")
