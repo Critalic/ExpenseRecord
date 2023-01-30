@@ -15,7 +15,7 @@ Project uses both access and refresh tokens. [Github package](https://github.com
 [Video instruction](https://drive.google.com/file/d/17hC29hxif4vG_UZfcoSTCujOsIAUMe7T/view?usp=sharing)
 
 ### Requirements
-- JDK 8 or higher
+- JDK 17 or higher
 - Spring Boot (v.2.7.4)
 - Docker
 
